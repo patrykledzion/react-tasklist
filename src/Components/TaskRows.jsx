@@ -1,4 +1,5 @@
 import React from 'react'
+import Task from './Task'
 
 const TaskRows = ({ app }) => {
 
@@ -11,7 +12,7 @@ const TaskRows = ({ app }) => {
               {
                 app.state.tasks.map((task, key) => {
                   return task.day == dayKey ? (
-                    <div className="task-row" onMouseDown={(e) => app.StartDrag(e, key)} className={"task-row "+(task.dragged == false ? "" : 'task-hidden')}>{task.title}</div>
+                    <Task _key={key} task={task} app={app}/>
                   ) : null
                 })
               }

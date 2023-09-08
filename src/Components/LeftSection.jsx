@@ -13,6 +13,9 @@ const LeftSection = ({ app }) => {
       }
     */
     const _title = document.add_task_form.title.value;
+
+    if(_title.trim()=="")return;
+    
     document.add_task_form.title.value = "";
     console.log(_title)
     const _id = app.state.tasks.length > 0 ? app.state.tasks[app.state.tasks.length - 1].id + 1 : 0
@@ -21,27 +24,25 @@ const LeftSection = ({ app }) => {
       title: _title,
       day: null,
       number: null,
+      done: false,
+      locked: false,
       dragged: false
     }
 
-    let _newArr = app.state.tasks;
-    _newArr.push(_newTask)
-
+    app.state.tasks.push(_newTask);
     app.setState({
-      tasks: _newArr
+      tasks: app.state.tasks
     })
-
-    console.log(app.state.tasks)
 
   }
 
   return (
-    <section className="left-section">
+    <section className="left-section" onMouseUp={() => app.EndDrag(null)}>
       <h2>
         <span>Task</span> List
       </h2>
-      <form id="add-task-form" name="add_task_form">
-        <input type="text" name="title" />
+      <form id="add-task-form" name="add_task_form" onSubmit={() => e.preventDefault()}>
+        <input type="text" name="title" onKeyDown={(e) => { if (e.keyCode == 13) { e.preventDefault(); AddTask() } }} />
         <input type="button" value="Add Task" onClick={AddTask} />
       </form>
       <br />

@@ -2,10 +2,11 @@ body
 {
   margin: 0;
   user-select: none;
+  background-color: #161925;
 }
 
 main {
-  background-color: #161925;
+
   color: #FDFFFC;
   width: 100vw;
   height: 100vh;
@@ -29,7 +30,7 @@ main {
   width: 75vw;
   height: 100vh;
   float: left;
-  box-shadow: -2px 10px 0px #4F6777;
+  box-shadow: -2px 0px 0px #4F6777;
     padding: 20px;
   box-sizing: border-box;
 }
@@ -71,11 +72,7 @@ main {
 
 .left-section input[type=button]
 {
-  width: 90%;
-  height: 50px;
   margin-top: 20px;
-  border: none;
-  border-radius: 5px;
   background-color: #1A446C;
   color: #FDFFFC;
   transition-duration: 0.5s;
@@ -92,32 +89,16 @@ main {
 .pending-tasks
 {
   overflow-y: auto;
-  max-width: 50vh;
+  height: 50vh;
 }
 
-
-.left-section table
+.left-section> div
 {
   width: 90%;
   border-collapse: seperate; 
   border-spacing: 0px 15px;;
-  margin: 15px auto;
-  
+  margin: 15px auto;  
 }
-
-.left-section table tr td
-{
-  padding: 20px;
-  background-color: #1A446C;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.left-section .pending-task-hidden
-{
-  opacity: 0;
-}
-
 
 .right-section > table.table-main
 {
@@ -130,7 +111,6 @@ main {
 
 .right-section > table.table-main td
 {
-  
   width: calc( 100% / 7 )
 }
 
@@ -146,14 +126,78 @@ main {
   color: #C1292E;
 }
 
-.right-section .task-row, .dragged-element
+.right-section .task-row, .dragged-element, .left-section .task-row
 {
-    padding: 20px;
     background-color: #1A446C;
     margin: 10px auto;
     border-radius: 5px;
     width: 95%;
     box-sizing: border-box;
+}
+
+.task-row .task-header
+{
+  display: block;
+  height: 30px;
+  background-color: #1d5285;
+  border-radius: 5px 5px 0 0;
+  margin: 0;
+  padding: 7px;
+  box-sizing: border-box;
+}
+
+.task-row .task-title
+{
+  display: block;
+  padding: 20px;
+  sbox-sizing: border-box;
+}
+
+.task-row .task-header .del-button
+{
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #c1292e;
+  border-radius: 50%;
+  float: left;
+  cursor: pointer;
+
+}
+
+.task-row .task-header .done-button
+{
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: goldenrod;
+  border-radius: 50%;
+  float: left;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.task-row .task-header .lock-button
+{
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  border-radius: 50%;
+  float: left;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.task-row .task-header .lock-button-locked
+{
+  background-color: gray;
+}
+
+.task-done
+{
+  text-decoration: line-through;
+  opacity: 0.5 !IMPORTANT;
 }
 
 .right-section .task-row:first-of-type
@@ -179,5 +223,16 @@ main {
 
 .right-section .task-hidden
 {
-  opacity: 0;
+  opacity: 0 !IMPORTANT;
 }
+
+.left-section .task-hidden
+{
+  opacity: 0 !IMPORTANT;
+}
+
+.task-locked
+{
+  opacity: 0.8;
+}
+
