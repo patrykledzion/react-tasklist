@@ -18,7 +18,7 @@ class App extends React.Component {
       mousePos: { x: 0, y: 0 },
 
     }
-  }
+  } 
 
   GetWeekDaysPos = () => {
 
